@@ -108,17 +108,17 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>User Report 
+                                    <h2>User Details 
                                     <small> 
 	                                    <c:choose>
 										    <c:when test="${sessionScope.Auth_level == 1}" >
-										        Administrator Activity Report
+										        Administrator Details
 										    </c:when> 
 										    <c:when test="${sessionScope.Auth_level == 2}">
-										    	Doctor Activity Report
+										    	Doctor Details
 										    </c:when>   
 										    <c:otherwise>
-										        Patient Activity Report
+										        Patient Details
 										    </c:otherwise>
 										 </c:choose>
                                     
