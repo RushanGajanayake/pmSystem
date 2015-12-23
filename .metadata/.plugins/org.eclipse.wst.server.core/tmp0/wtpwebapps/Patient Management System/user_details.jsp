@@ -150,7 +150,18 @@
                                             <div id="crop-avatar">
                                                 <!-- Current avatar -->
                                                 <div class="avatar-view" title="Change the avatar">
-                                                    <img src="images/picture.jpg" alt="Avatar">
+                                                	<c:choose>
+													    <c:when test="${sessionScope.Auth_level == 1}" >
+													        <img src="resource/images/avatar.png" alt="Avatar">
+													    </c:when> 
+													    <c:when test="${sessionScope.Auth_level == 2}">
+													    	<img src="resource/images/avatar.png" alt="Avatar">
+													    </c:when>   
+													    <c:otherwise>
+													        <img src="resource/images/avatar.png" alt="Avatar">
+													    </c:otherwise>
+													 </c:choose>
+                                                    
                                                 </div>
 
                                             </div>

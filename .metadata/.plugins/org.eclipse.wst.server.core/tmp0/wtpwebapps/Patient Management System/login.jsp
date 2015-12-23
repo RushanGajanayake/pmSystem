@@ -57,7 +57,7 @@
                             <div class="clearfix"></div>
                             <br />
                             <div>
-                                <h1><img src="resource/images/logo.png" height="50" width="200" alt="..." ></h1>
+                                <h1><img src="resource/images/logo.png" height="80" width="320" alt="..." ></h1>
 
                                 <p>All your health care ..!!</p>
                             </div>

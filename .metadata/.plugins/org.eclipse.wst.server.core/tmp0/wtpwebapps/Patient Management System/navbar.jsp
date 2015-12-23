@@ -67,6 +67,14 @@
                      </li>
                  </ul> -->
              </li>
+             <li><a href="${initParam.baseURL}/prescription.jsp"><i class="fa fa-plus-square"></i> prescriptions <span class="fa fa-chevron-down"></span></a>
+                 <!-- <ul class="nav child_menu" style="display: none">
+                     <li><a href="tables.html">Tables</a>
+                     </li>
+                     <li><a href="tables_dynamic.html">Table Dynamic</a>
+                     </li>
+                 </ul> -->
+             </li>
              <li><a><i class="fa fa-table"></i> Doctors <span class="fa fa-chevron-down"></span></a>
                  <!-- <ul class="nav child_menu" style="display: none">
                      <li><a href="tables.html">Tables</a>
