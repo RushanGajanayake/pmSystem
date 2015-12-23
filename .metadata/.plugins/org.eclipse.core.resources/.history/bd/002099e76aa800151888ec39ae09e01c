@@ -1,0 +1,229 @@
+package controller.login;
+
+import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Request;
+import controller.login.*;
+
+import com.mysql.jdbc.PreparedStatement;
+import dbConnector.dbConnection;
+
+/**
+ * Servlet implementation class loginController
+ */
+@WebServlet("/login")
+public class loginController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+	
+    public loginController() {
+        super();
+        
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		try
+		{
+			HttpSession session = request.getSession();
+			Accounts user = new Accounts();
+			
+			String userEmail = request.getParameter("email");
+			String password = request.getParameter("pwd");
+				
+			
+			user.setUsername(request.getParameter("email"));
+			user.setPassword(request.getParameter("pwd"));
+			
+			System.out.println(userEmail);
+			
+			Validation val = new Validation();
+			
+			System.out.println("In the Login Servlet");
+			
+			if(userEmail != null){
+				if(val.checkUser(userEmail, password))
+				{
+					int auth_level = 0 ;
+					String user_id = null;
+					String first_name = null;
+					String last_name = null;
+					
+					//get auth level and user id from authentication table
+					try{
+						Connection con = dbConnection.connector();
+						
+						PreparedStatement ps = (PreparedStatement) con.prepareStatement("select * from Authentication where user_email=?");
+						
+						ps.setString(1, userEmail);
+						ResultSet rs =ps.executeQuery();
+						
+						
+						while(rs.next()){
+							user_id = rs.getString("user_id");
+							 auth_level = rs.getInt("authen_level");
+														
+						}
+						
+					}
+					catch(Exception e){
+						
+					}
+					
+					//get user first and last names from users table
+					try{
+						Connection con = dbConnection.connector();
+						
+						PreparedStatement ps = (PreparedStatement) con.prepareStatement("select * from users where user_id=?");
+						
+						ps.setString(1, user_id);
+						ResultSet rs =ps.executeQuery();
+						
+						
+						while(rs.next()){
+							first_name = rs.getString("Name");
+							last_name = rs.getString("Surname");
+														
+						}
+						
+					}
+					catch(Exception e){
+						
+					}
+					
+					String fullName = first_name+" "+last_name;
+					
+					session.setAttribute("user_id",user_id);
+					session.setAttribute("Auth_level",auth_level);
+					session.setAttribute("userEmail", userEmail);
+					request.getRequestDispatcher("index.jsp").forward(request, response);
+				}else{
+					response.sendRedirect("login.jsp");
+				}
+			}
+			else{
+				response.sendRedirect("login.jsp");
+			}
+			
+		} catch (Throwable exc)
+		{
+			System.out.println(exc);
+		}
+		
+		
+		//request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		
+//		String action = request.getParameter("action");
+//		HttpSession session = request.getSession();
+//		
+//		if(action==null){
+//			
+//			Accounts accounts = checkCookies(request);
+//			if(accounts == null){
+//				request.getRequestDispatcher("login.jsp").forward(request, response);
+//			}
+//			else{
+//				Validation val = new Validation();
+//				if(val.checkUser(accounts.getUsername(), accounts.getPassword())){
+//					session.setAttribute("username", accounts.getUsername());
+//					request.getRequestDispatcher("index.jsp").forward(request, response);
+//				}
+//				else{
+//					//request.setAttribute("error", "Account Invalide");
+//					request.getRequestDispatcher("login.jsp").forward(request, response);
+//					
+//				}
+//			}
+//			
+//		}
+//		else{
+//			request.getRequestDispatcher("index.jsp").forward(request, response);
+//		}
+	}
+	
+	private Accounts checkCookies(HttpServletRequest request){
+		
+		Cookie[] cookies = request.getCookies();
+		Accounts accounts = null;
+		
+		if(cookies == null){
+			return null;
+		}
+		else{
+			String username = "",password = "";
+			for(Cookie ck: cookies){
+				if(ck.getName().equalsIgnoreCase("username")){
+					username = ck.getValue();
+				}
+				if(ck.getName().equalsIgnoreCase("password")){
+					password = ck.getValue();
+				}
+			}
+			if(!username.isEmpty() && !password.isEmpty()){
+				accounts = new Accounts(username,password);
+			}
+			
+			return accounts;
+		}
+		
+	}
+	
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+//		String action = request.getParameter("action");
+//		HttpSession session = request.getSession();
+//		Validation val = new Validation();
+//		
+//		if(action == null){
+//			String username = request.getParameter("email1").trim();
+//			String password = request.getParameter("pwd1").trim();
+//			boolean remember = request.getParameter("remember") != null;
+//			
+//			if(val.checkUser(username, password)){
+//				session.setAttribute("username", username);
+//				if(remember){
+//					Cookie ckUsername = new Cookie("username",username);
+//					ckUsername.setMaxAge(3600);
+//					response.addCookie(ckUsername);
+//					Cookie ckPassword = new Cookie("password",password);
+//					ckPassword.setMaxAge(3600);
+//					response.addCookie(ckPassword);					
+//				}
+//				request.getRequestDispatcher("index.jsp").forward(request, response);
+//				
+//			}
+//			else{
+//				//request.setAttribute("error", "Account Invalide");
+//				request.getRequestDispatcher("login.jsp").forward(request, response);
+//				
+//			}
+//		}
+					
+		
+	}
+
+}

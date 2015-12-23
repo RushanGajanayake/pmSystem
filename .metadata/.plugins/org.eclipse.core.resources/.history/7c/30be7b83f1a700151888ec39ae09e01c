@@ -1,0 +1,37 @@
+package controller.login;
+
+import java.sql.*;
+import java.sql.ResultSet;
+
+import com.mysql.jdbc.PreparedStatement;
+
+import dbConnector.dbConnection;
+
+public class Validation {
+	
+	public static boolean checkUser(String email,String pwd){
+		
+		boolean rt = false;
+		
+		try{
+			Connection con = dbConnection.connector();
+			
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement("select user_password from Authentication where user_email=?");
+			
+			ps.setString(1, email);
+			ResultSet rs =ps.executeQuery();
+			
+			String user_pass = rs.getString("user_password");
+			
+			System.out.println();
+	        rt = rs.next();
+		}
+		catch(Exception e){
+			
+		}
+		
+		return rt;
+		
+	}
+
+}

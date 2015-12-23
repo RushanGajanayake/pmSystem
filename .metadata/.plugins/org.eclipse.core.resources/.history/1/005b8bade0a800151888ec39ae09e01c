@@ -1,0 +1,54 @@
+package controller.users;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class addPatientData
+ */
+@WebServlet("/addPatient")
+public class addPatientData extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+	
+    public addPatientData() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String firstname =  request.getParameter("name");
+		String surname =  request.getParameter("surname");
+		String nic =  request.getParameter("nic");
+		String dob =  request.getParameter("dob");
+		String street =  request.getParameter("street");
+		String city =  request.getParameter("city");
+		String telephone =  request.getParameter("number");
+		String email =  request.getParameter("email");
+		String reg_date =  request.getParameter("reg_date");
+		
+		try{
+			
+			
+		}
+		catch(Exception e){
+			
+		}
+		
+		
+	}
+
+}

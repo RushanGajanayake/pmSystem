@@ -1,0 +1,13 @@
+127.0.0.1 - - [09/Dec/2015:16:37:44 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:16:37:45 +0530] "GET /Patient_Management_System/WEB-INF/web.xml HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:16:37:55 +0530] "GET /Patient_Management_System/ HTTP/1.1" 200 988
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:16:37:55 +0530] "GET /Patient_Management_System/resource/js/jquery.min.js HTTP/1.1" 200 95786
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:16:37:55 +0530] "GET /Patient_Management_System/resource/css/bootstrap.min.css HTTP/1.1" 200 117787
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:16:37:55 +0530] "GET /Patient_Management_System/resource/js/bootstrap.min.js HTTP/1.1" 200 35601
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:19:38:26 +0530] "GET /Patient_Management_System/ HTTP/1.1" 200 1035
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:19:38:26 +0530] "GET /Patient_Management_System/resource/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:19:38:26 +0530] "GET /Patient_Management_System/resource/js/bootstrap.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:19:38:26 +0530] "GET /Patient_Management_System/resource/js/jquery.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:20:28:13 +0530] "GET /phpmyadmin HTTP/1.1" 404 1014
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:20:41:53 +0530] "GET /phpmyadmin HTTP/1.1" 404 1014
+0:0:0:0:0:0:0:1 - - [09/Dec/2015:20:41:54 +0530] "GET /phpmyadmin HTTP/1.1" 404 1014

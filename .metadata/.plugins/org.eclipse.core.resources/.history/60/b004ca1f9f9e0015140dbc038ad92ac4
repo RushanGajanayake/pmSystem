@@ -1,0 +1,14 @@
+package controller.login;
+
+public class Authentication {
+	
+	public static boolean checkUser(username,pwd){
+		
+		boolean rt = false;
+		
+		try{
+			con = 
+		}
+	}
+
+}

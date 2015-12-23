@@ -1,0 +1,31 @@
+package controller.login;
+
+import com.mysql.jdbc.PreparedStatement;
+
+import dbConnector.dbConnection;
+
+public class Authentication {
+	
+	public static boolean checkUser(email,pwd){
+		
+		boolean rt = false;
+		
+		try{
+			con = dbConnection.connector();
+			
+			PreparedStatement ps = con.prepareStatement("select user_password from Authentication where user_email=?");
+			
+			ps.setString(1, email);
+			ResultSet rs =ps.executeQuery();
+	        rt = rs.next();
+		}
+		catch(Exception e){
+			
+		}
+		System.out.println(rt);
+		
+		return rt;
+		
+	}
+
+}

@@ -1,0 +1,152 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+     <div class="menu_section">
+	     <c:choose>
+		    <c:when test="${sessionScope.Auth_level == 1}" >
+		        <h3>Admin</h3>
+		    </c:when> 
+		    <c:when test="${sessionScope.Auth_level == 2}">
+		    	<h3>Doctor</h3>
+		    </c:when>   
+		    <c:otherwise>
+		        <h3>General</h3>
+		    </c:otherwise>
+		 </c:choose>
+         
+         <ul class="nav side-menu">
+             <li><a href="index.jsp"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                 <!-- <ul class="nav child_menu" style="display: none">
+                     <li><a href="index.html">Dashboard</a>
+                     </li>
+                     <li><a href="index2.html">Dashboard2</a>
+                     </li>
+                     <li><a href="index3.html">Dashboard3</a>
+                     </li>
+                 </ul> -->
+             </li>
+             <li><a href="${initParam.baseURL}/userdata"><i class="fa fa-edit"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                 <!-- <ul class="nav child_menu" style="display: none">
+                     <li><a href="form.html">General Form</a>
+                     </li>
+                     <li><a href="form_advanced.html">Advanced Components</a>
+                     </li>
+                     <li><a href="form_validation.html">Form Validation</a>
+                     </li>
+                     <li><a href="form_wizards.html">Form Wizard</a>
+                     </li>
+                     <li><a href="form_upload.html">Form Upload</a>
+                     </li>
+                     <li><a href="form_buttons.html">Form Buttons</a>
+                     </li>
+                 </ul> -->
+             </li>
+             <li><a><i class="fa fa-desktop"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                 <!-- <ul class="nav child_menu" style="display: none">
+                     <li><a href="general_elements.html">General Elements</a>
+                     </li>
+                     <li><a href="media_gallery.html">Media Gallery</a>
+                     </li>
+                     <li><a href="typography.html">Typography</a>
+                     </li>
+                     <li><a href="icons.html">Icons</a>
+                     </li>
+                     <li><a href="glyphicons.html">Glyphicons</a>
+                     </li>
+                     <li><a href="widgets.html">Widgets</a>
+                     </li>
+                     <li><a href="invoice.html">Invoice</a>
+                     </li>
+                     <li><a href="inbox.html">Inbox</a>
+                     </li>
+                     <li><a href="calender.html">Calender</a>
+                     </li>
+                 </ul> -->
+             </li>
+             <li><a><i class="fa fa-table"></i> Doctors <span class="fa fa-chevron-down"></span></a>
+                 <!-- <ul class="nav child_menu" style="display: none">
+                     <li><a href="tables.html">Tables</a>
+                     </li>
+                     <li><a href="tables_dynamic.html">Table Dynamic</a>
+                     </li>
+                 </ul> -->
+             </li>
+             <li><a><i class="fa fa-bar-chart-o"></i> Appointments <span class="fa fa-chevron-down"></span></a>
+                <!--  <ul class="nav child_menu" style="display: none">
+                     <li><a href="chartjs.html">Chart JS</a>
+                     </li>
+                     <li><a href="chartjs2.html">Chart JS2</a>
+                     </li>
+                     <li><a href="morisjs.html">Moris JS</a>
+                     </li>
+                     <li><a href="echarts.html">ECharts </a>
+                     </li>
+                     <li><a href="other_charts.html">Other Charts </a>
+                     </li>
+                 </ul> -->
+             </li>
+         </ul>
+     </div>
+     <c:choose>
+     	<c:when test="${sessionScope.Auth_level == 1}">
+		     <div class="menu_section">
+		         <h3>Managment</h3>
+		         <ul class="nav side-menu">
+		       			<li><a><i class="fa fa-bug"></i> Users <span class="fa fa-chevron-down"></span></a>
+			                <ul class="nav child_menu" style="display: none">
+			                    <li><a href="Admin/doctorInfo.jsp">Add Doctors</a>
+			                    </li>
+			                    <li><a href="Admin/patientInfo.jsp">Add Patient</a>
+			                    </li>
+			                    <li><a href="#">All Users</a>
+			                    </li>
+			                    <!-- <li><a href="contacts.html">Contacts</a>
+			                    </li>
+			                    <li><a href="profile.html">Profile</a>
+			                    </li> -->
+			                </ul>
+			            </li>
+			            <li><a><i class="fa fa-windows"></i> Notifications <span class="fa fa-chevron-down"></span></a>
+			                 <!-- <ul class="nav child_menu" style="display: none">
+			                     <li><a href="page_404.html">404 Error</a>
+			                     </li>
+			                     <li><a href="page_500.html">500 Error</a>
+			                     </li>
+			                     <li><a href="plain_page.html">Plain Page</a>
+			                     </li>
+			                     <li><a href="login.html">Login Page</a>
+			                     </li>
+			                     <li><a href="pricing_tables.html">Pricing Tables</a>
+			                     </li>
+		
+		                 	</ul> -->
+		             	</li>
+		             <li><a><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
+		             </li>     
+		         </ul>
+		     </div>
+     	</c:when>
+     </c:choose>
+
+ </div>
+ 
+  <!-- /menu footer buttons -->
+ <div class="sidebar-footer hidden-small">
+     <a data-toggle="tooltip" data-placement="top" title="Settings">
+         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+     </a>
+     <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+         <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+     </a>
+     <a data-toggle="tooltip" data-placement="top" title="Lock">
+         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+     </a>
+     <a data-toggle="tooltip" data-placement="top" title="Logout">
+         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+     </a>
+ </div>
+ <!-- /menu footer buttons -->

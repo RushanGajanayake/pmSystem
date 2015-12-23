@@ -1,0 +1,9 @@
+package models.manager;
+
+import java.io.Serializable;
+
+public class userdataManager implements Serializable {
+	
+	
+
+}
