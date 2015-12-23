@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Metro Medi Care </title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="resource/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="resource/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resource/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="resource/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resource/css/maps/jquery-jvectormap-2.0.1.css" />
+    <link href="resource/css/icheck/flat/green.css" rel="stylesheet" />
+    <link href="resource/css/floatexamples.css" rel="stylesheet" type="text/css" />
+
+    <script src="resource/js/jquery.min.js"></script>
+    <script src="resource/js/nprogress.js"></script>
+
+</head>
+
+
+<body class="nav-md">
+
+    <div class="container body">
+
+
+        <div class="main_container">
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"> <span>Metro Medi Care</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="resource/images/user_icon.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>${sessionScope.userName}</h2>
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    
+                    <jsp:include page="navbar.jsp" />
+                    
+                    <!-- /sidebar menu -->
+
+                  
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            
+            <jsp:include page="topbar.jsp" />
+            
+            <!-- /top navigation -->
+            
+            
+            
+            <!-- page content  -->
+            <div class="right_col" role="main">
+
+               
+               
+               
+               
+
+                <!-- footer content -->
+                <jsp:include page="footer.jsp" />
+                <!-- /footer content -->
+
+            </div>
+           <!-- /page content -->
+        </div>
+
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <script src="resource/js/bootstrap.min.js"></script>
+
+    <!-- chart js -->
+    <script src="resource/js/chartjs/chart.min.js"></script>
+    <!-- bootstrap progress js -->
+    <script src="resource/js/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="resource/js/nicescroll/jquery.nicescroll.min.js"></script>
+    <!-- icheck -->
+    <script src="resource/js/icheck/icheck.min.js"></script>
+
+    <script src="resource/js/custom.js"></script>
+    <!-- form validation -->
+    <script src="resource/js/validator/validator.js"></script>
+    
+     
+</body>
+
+</html>
