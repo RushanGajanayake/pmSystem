@@ -82,19 +82,25 @@
             
             
             
-
-            <!-- page content -->
+            
             <div class="right_col" role="main">
 
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>
-                    Informations
-                </h3>
+                            <h3>User Profile</h3>
                         </div>
 
-                        
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="clearfix"></div>
 
@@ -102,9 +108,23 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Personal Details <small>sub title</small></h2>
+                                    <h2>User Report 
+                                    <small> 
+	                                    <c:choose>
+										    <c:when test="${sessionScope.Auth_level == 1}" >
+										        Administrator Activity Report
+										    </c:when> 
+										    <c:when test="${sessionScope.Auth_level == 2}">
+										    	Doctor Activity Report
+										    </c:when>   
+										    <c:otherwise>
+										        Patient Activity Report
+										    </c:otherwise>
+										 </c:choose>
+                                    
+                                    </small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -115,95 +135,189 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        <li><a href="#"><i class="fa fa-close"></i></a>
                                         </li>
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
+
+                                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+                                        <div class="profile_img">
+
+                                            <!-- end of image cropping -->
+                                            <div id="crop-avatar">
+                                                <!-- Current avatar -->
+                                                <div class="avatar-view" title="Change the avatar">
+                                                    <img src="images/picture.jpg" alt="Avatar">
+                                                </div>
+
+                                            </div>
+                                            <!-- end of image cropping -->
+
+                                        </div>
+                                        <h3>${sessionScope.userName}</h3>
+
+                                        <ul class="list-unstyled user_data">
+                                            
+                                            <li>
+                                                <i class="fa fa-briefcase user-profile-icon"></i> 
+                                                <c:choose>
+												    <c:when test="${sessionScope.Auth_level == 1}" >
+												        Administrator
+												    </c:when> 
+												    <c:when test="${sessionScope.Auth_level == 2}">
+												    	Doctor
+												    </c:when>   
+												    <c:otherwise>
+												        Patient
+												    </c:otherwise>
+												 </c:choose>
+                                                
+                                            </li>
+
+                                            <li class="m-top-xs">
+                                                <i class="fa fa-external-link user-profile-icon"></i>
+                                                <a href="#" target="_blank">www.metromedicare.lk</a>
+                                            </li>
+                                        </ul>
+                                        
+                                        </br>
+                                        
+                                        <!-- start skills -->
+                                        <h4>Skills</h4>
+                                        <ul class="list-unstyled user_data">
+                                            <li>
+                                                <p>Web Applications</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Website Design</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Automation & Testing</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>UI / UX</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- end of skills -->
+
+                                        
+
+                                        
+
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                                        <div class="profile_title">
+                                            <div class="col-md-6">
+                                                <h2>Personal Details</h2>
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div>
+                                        </br>
+                                        </br>
+                                        <div class="x_content">
 									
-                                    <form class="form-horizontal form-label-left" novalidate>
+		                                    <form class="form-horizontal form-label-left" novalidate>
+		
+		                                      <c:forEach var="userDetails" items="${sessionScope.allUserDetails }">
+		                                      
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input id="name" class="form-control col-md-7 col-xs-12"   name="name"  required="required" type="text" value="${userDetails.firstname} ${userDetails.lastname}" readonly>
+		                                            </div>
+		                                        </div>
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nic">NIC <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="text" id="nic" name="nic" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.nic }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob"> Date of Birth <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="date" id="dob" name="dob" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.dob }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="street">Address <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="text" id="street" name="street" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.street }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city">City <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="text" id="city" name="city" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.city }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Tel Number <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" value="${userDetails.telephone }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.email }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        
+		                                        <div class="item form-group">
+		                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reg_date">Reg Date <span class="required">*</span>
+		                                            </label>
+		                                            <div class="col-md-6 col-sm-6 col-xs-12">
+		                                                <input type="date" id="reg_date" name="reg_date" required="required"  class="form-control col-md-7 col-xs-12" value="${userDetails.reg_date }" readonly>
+		                                            </div>
+		                                        </div>
+		                                        
+		                                        
+		                                        </c:forEach>
+		                                    </form>
 
-                                      <c:forEach var="userDetails" items="${sessionScope.allUserDetails }">
-                                      
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="name" class="form-control col-md-7 col-xs-12"   name="name"  required="required" type="text" value="${userDetails.firstname} ${userDetails.lastname}" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nic">NIC <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="nic" name="nic" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.nic }" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob"> Date of Birth <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="date" id="dob" name="dob" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.dob }" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="street">Address <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="street" name="street" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.street }" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city">City <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="city" name="city" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.city }" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Tel Number <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" value="${userDetails.telephone }" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" value="${userDetails.email }" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reg_date">Reg Date <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="date" id="reg_date" name="reg_date" required="required"  class="form-control col-md-7 col-xs-12" value="${userDetails.reg_date }" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="ln_solid"></div>
-                                        </c:forEach>
-                                    </form>
+                                		</div>
 
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- footer content -->
-            
-            <jsp:include page="footer.jsp" />
-            
-            <!-- /footer content -->
-                
+                <jsp:include page="footer.jsp" />
+                <!-- /footer content -->
+
             </div>
-            <!-- /page content -->
+           
         </div>
 
     </div>
