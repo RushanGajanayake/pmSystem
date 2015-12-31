@@ -6,7 +6,7 @@
 <footer>
     <div class="">
         <p class="pull-right"> <!--  <a>Kimlabs</a>. | -->
-            <span class="lead"> <i class="fa fa-paw"></i> Metro Medi Care</span>
+            <span class="lead"> <i class="fa fa-yelp"></i> Metro Medi Care</span>
         </p>
     </div>
     <div class="clearfix"></div>
