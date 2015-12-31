@@ -75,7 +75,7 @@
                      </li>
                  </ul> -->
              </li>
-             <li><a><i class="fa fa-table"></i> Doctors <span class="fa fa-chevron-down"></span></a>
+             <li><a href="${initParam.baseURL}/allDoctors.jsp"><i class="fa fa-table"></i> Doctors <span class="fa fa-chevron-down"></span></a>
                  <!-- <ul class="nav child_menu" style="display: none">
                      <li><a href="tables.html">Tables</a>
                      </li>
@@ -83,7 +83,7 @@
                      </li>
                  </ul> -->
              </li>
-             <li><a><i class="fa fa-bar-chart-o"></i> Appointments <span class="fa fa-chevron-down"></span></a>
+             <li><a href="${initParam.baseURL}/appointments.jsp"><i class="fa fa-bar-chart-o"></i> Appointments <span class="fa fa-chevron-down"></span></a>
                 <!--  <ul class="nav child_menu" style="display: none">
                      <li><a href="chartjs.html">Chart JS</a>
                      </li>
@@ -110,11 +110,11 @@
 			                    </li>
 			                    <li><a href="Admin/patientInfo.jsp">Add Patient</a>
 			                    </li>
-			                    <li><a href="#">All Users</a>
+			                    <li><a href="${initParam.baseURL}/allPatient.jsp">All Patients</a>
 			                    </li>
-			                    <!-- <li><a href="contacts.html">Contacts</a>
+			                    <li><a href="${initParam.baseURL}/allDoctors.jsp">Contacts</a>
 			                    </li>
-			                    <li><a href="profile.html">Profile</a>
+			                    <!-- <li><a href="profile.html">Profile</a>
 			                    </li> -->
 			                </ul>
 			            </li>
