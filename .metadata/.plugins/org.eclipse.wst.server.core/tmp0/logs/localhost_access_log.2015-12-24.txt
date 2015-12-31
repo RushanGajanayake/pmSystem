@@ -306,3 +306,5 @@
 0:0:0:0:0:0:0:1 - - [24/Dec/2015:00:45:38 +0530] "GET /Patient_Management_System/Admin/patientInfo.jsp HTTP/1.1" 200 28256
 0:0:0:0:0:0:0:1 - - [24/Dec/2015:00:45:38 +0530] "GET /Patient_Management_System/Admin/images/img.jpg HTTP/1.1" 404 1086
 0:0:0:0:0:0:0:1 - - [24/Dec/2015:00:45:38 +0530] "GET /Patient_Management_System/Admin/resource/images/user_icon.png HTTP/1.1" 404 1116
+0:0:0:0:0:0:0:1 - - [24/Dec/2015:23:59:44 +0530] "GET /Patient_Management_System/navbar.jsp HTTP/1.1" 200 5278
+0:0:0:0:0:0:0:1 - - [24/Dec/2015:23:59:45 +0530] "GET /Patient_Management_System/navbar.jsp HTTP/1.1" 200 5278
